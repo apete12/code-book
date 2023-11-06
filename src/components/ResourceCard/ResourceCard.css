@@ -9,6 +9,10 @@
   height: 325px
 }
 
+.card-details{
+  margin: 0;
+}
+
 .card-type,
 .card-name {
   display: flex;
@@ -21,6 +25,7 @@
   font-size: 1.25em;
   font-family: 'Aleo', sans-serif;
   padding: .5em;
+  margin-bottom: 1em;
 
 }
 
@@ -32,12 +37,13 @@
 .resource-icon{
   height: 100px;
   width: 100px;
+  margin-bottom: 1em;
 }
 
 .info-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   width: 85%;
   height: 95%;
