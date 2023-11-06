@@ -1,4 +1,4 @@
-import './PetDetails.css'
+import './ResourceDetails.css'
 import spirals from '../../images/spirals.png'
 import { Link, useParams } from 'react-router-dom'
 import PropTypes from 'prop-types'
@@ -6,14 +6,14 @@ import { checkIcon } from '../../utils';
 import { fetchPetsById } from '../../api-calls';
 import { useEffect, useState } from 'react';
 
-function PetDetails({ setError }) {
+function ResourceDetails({ setError }) {
   const id = useParams().id;
-  const [foundPet, setFoundPet] = useState({})
+  const [foundResource, setFoundResource] = useState({})
 
   useEffect(() => {
     fetchPetsById(id)
     .then(data => {
-      setFoundPet(data)
+      setFoundResource(data)
       
     })
     .catch(error => {
@@ -21,34 +21,33 @@ function PetDetails({ setError }) {
     })
   }, [id, setError])
   
-  return Object.values(foundPet).length > 0 && (
-    <article key={foundPet.id}>
-      <div className='back-to-all-pets-button-container'>
-        <Link to={'/'}><button className='back-to-all-pets-button'>Back to All Pets</button></Link>
+  return Object.values(foundResource).length > 0 && (
+    <article key={foundResource.id}>
+      <div className='back-to-all-resources-button-container'>
+        <Link to={'/'}><button className='back-to-all-resources-button'>Back to All Resources</button></Link>
       </div>
       <section className='details-container'>
         <div className='spirals-container'>
           <img className='spirals' src={spirals} alt='spiral styling'/>
         </div>
-        <div className='pet'>
-          <div className='pet-image'>{checkIcon(foundPet.type)}</div>
-          <h2>{foundPet.name}</h2>
-          <p>Owner: {foundPet.ownersName} </p>
+        <div className='resource-type'>
+          <div className='resource-type-image'>{checkIcon(foundResource.type)}</div>
+          <h2>Resource Type: {foundResource.type}</h2>
         </div>
-        <div className='pet-info'>
-          <h2 className='pet-type'>{foundPet.type}</h2>
-          <p>Nickname: {foundPet.nickname}</p>
-          <p>Age: {foundPet.age}</p>
-          <p>Fun Facts: {foundPet.funFact}</p>
+        <div className='resource-info'>
+          <h2 className='resource-name'>{foundResource.name}</h2>
+          <p>Details: {foundResource.details}</p>
+          <p>Intention: {foundResource.intention}</p>
+          <a href={foundResource.link}>Visit the {foundResource.name} full resource.</a>
         </div>
       </section>
     </article>
   ) 
 };
 
-export default PetDetails;
+export default ResourceDetails;
 
-PetDetails.propTypes = {
+ResourceDetails.propTypes = {
   allPets: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

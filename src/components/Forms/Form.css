@@ -1,18 +1,27 @@
 .form-section {
   display: flex;
   flex-direction: column;
-  border: solid 20px #72788D;
-  width: 20%;
-  border-radius: 8%;
+  border: solid 10px #000000;
+  background: white;
+  width: 25%;
+  height: 40%;
   margin-left: 20px;
   margin-top: 28px;
-  margin-bottom: 15px;
-  background-color: #E3D7FF;
-  height: 42rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1em;
+  width: 100%;
 }
 
 .form-wrapper {
   display: flex;
+}
+
+.new-resource {
+  padding-top: 1em;
 }
 
 p {
@@ -23,8 +32,22 @@ p {
 }
 
 .sec {
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   font-weight: bold;
+}
+
+#resource-type-checkbox{
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  flex-direction: row;
+  width: 100%;
+}
+
+#video-label {
+  margin-right: 5em;
 }
 
 .paws-image {

@@ -5,11 +5,11 @@ import { fetchPets } from './api-calls';
 import HomeView from './components/HomeView/HomeView';
 import Header from './components/Header/Header';
 import Error from './components/Error/Error';
-import PetDetails from './components/PetDetails/PetDetails';
+import ResourceDetails from './components/ResourceDetails/ResourceDetails';
 import Loading from './components/Loading/Loading';
 
 const App = () => {
-  const [allPets, setAllPets] = useState([])
+  const [allResources, setAllResources] = useState([])
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const location = useLocation().pathname
@@ -18,19 +18,19 @@ const App = () => {
     setError('')
   }, [location])
 
-  const addNewPet = (newPet) => {
-    setAllPets([...allPets, newPet])
+  const addNewResource = (newResource) => {
+    setAllResources([...allResources, newResource])
   }
 
-  const deletePet = async (petId) => {
+  const deletePet = async (resourceId) => {
     try {
-      const response = await fetch(`https://petbook-be-git-refactor-edit-server-name-aliceabarca.vercel.app/api/v1/pets/${petId}`, {
+      const response = await fetch(`https://code-book-be-git-main-apete12.vercel.app/api/v1/resources/${resourceId}`, {
         method: 'DELETE'
       });
   
       if (response.ok) {
-        const updatedPets = allPets.filter(pet => pet.id !== petId);
-        setAllPets(updatedPets);
+        const updatedPets = allResources.filter(resource => resource.id !== resourceId);
+        setAllResources(updatedPets);
       } else {
         console.log('fail', response.status);
       }
@@ -43,7 +43,7 @@ const App = () => {
     setLoading(true)
     fetchPets()
     .then(data => {
-      setAllPets(data.pets)
+      setAllResources(data.resources)
       setLoading(false)
     })
     .catch(error => {
@@ -57,8 +57,8 @@ const App = () => {
       <Header />
       {loading && <Loading loading={loading}/>}
       <Routes>
-        <Route path="/" element={!error && !loading && <HomeView addNewPet={addNewPet} deletePet={deletePet} allPets={allPets} setLoading={setLoading} setError={setError}/>}/>
-        <Route path="/:id" element={<PetDetails allPets={allPets} setError={setError}/>}/>
+        <Route path="/" element={!error && !loading && <HomeView addNewResource={addNewResource} deletePet={deletePet} allResources={allResources} setLoading={setLoading} setError={setError}/>}/>
+        <Route path="/:id" element={<ResourceDetails allResources={allResources} setError={setError}/>}/>
         <Route path='*' element={<Error error={error}/>}/>
       </Routes>
       {error && <Error error={error} />}

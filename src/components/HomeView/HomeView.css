@@ -1,6 +1,5 @@
 .home-view {
   display: flex;
-  background: #fbcb7f;
   height: 100%;
 }
 
@@ -9,7 +8,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #fbcb7f;
     height: 100%;
   }
 }

@@ -3,37 +3,34 @@ import { useState } from 'react';
 import { postPet } from '../../api-calls'
 import PropTypes from 'prop-types'
 
-import paws from '../../images/paws.png'
-
-const Form = ({ addNewPet, setLoading, setError }) => {
+const Form = ({ addNewResource, setLoading, setError }) => {
   const [name, setName] = useState("");
-  const [nickname, setNickname] = useState("");
-  const [age, setAge] = useState("");
-  const [funFact, setFunFact] = useState("");
-  const [ownersName, setOwnersName] = useState("");
+  const [details, setDetails] = useState("");
   const [type, setType] = useState("");
+  const [link, setLink] = useState("");
+  const [intention, setIntention] = useState("");
 
-  const submitNewPets = (e) => {
+
+  const submitNewResource = (e) => {
     e.preventDefault();
 
-    const newPet = {
+    const newResource = {
       name,
-      nickname,
-      age,
-      funFact,
-      ownersName,
-      type
+      details,
+      type,
+      intention
     };
 
-    if (!newPet.name || !newPet.nickname || !newPet.age || !newPet.funFact || !newPet.ownersName) {
+    if (!newResource.name || !newResource.details || !newResource.type || !newResource.link || !newResource.intention) {
       return alert('Fill all inputs!')
     } else {
     setLoading(true)
-    postPet(newPet)
+    postPet(newResource)
+
     .then(data => {
       setLoading(false)
 
-      addNewPet(data)
+      addNewResource(data)
       clearInputs()
     })
     .catch(error => setError(`Post Failed - ${error.message}`))
@@ -43,96 +40,81 @@ const Form = ({ addNewPet, setLoading, setError }) => {
 
   const clearInputs = () => {
     setName("");
-    setNickname("");
-    setAge("");
-    setFunFact("");
-    setOwnersName("");
+    setDetails("");
     setType("");
   }
 
   return (
     <div className='form-section'>
-      <p className='new-pet'>Add New Pet!</p>
-      <img className='paws-image' src={paws} alt='paws'/>
+      <p className='new-resource'>Add New Resource:</p>
       <div className='form-wrapper'>
         <form>
-          <div className='pets-name-section sec'>
-            <label htmlFor='pets-name'>Pets Name:</label>
+        <div className='resource-type-checkbox sec' id='resource-type-checkbox'>
+            <input
+              type='checkbox'
+              checked={type === 'Video'}
+              onChange={() => setType('Video')}
+              value='video'
+              id='video'
+              name='video'
+            />
+            <label id='video-label' htmlFor='Video'>Video</label>
+            <input
+              type='checkbox'
+              checked={type === 'Article'}
+              onChange={() => setType('Article')}
+              value='article'
+              id='article'
+              name='article'
+            />
+            <label htmlFor='article'>Article</label>
+          </div>
+          <div className='resource-name-section sec'>
+            <label htmlFor='pets-name'>Resource Name:</label>
             <input
               type='text'
-              id='pets-name'
-              name='petsName'
+              id='resource-name'
+              name='resourceName'
               value={name}
               onChange={event => setName(event.target.value)}
               required
             />
           </div>
-
-          <div className='pets-type-checkbox sec'>
+          <div className='resource-description-section sec'>
+            <label htmlFor='pets-nickname'>Link:</label>
             <input
-              type='checkbox'
-              checked={type === 'Dog'}
-              onChange={() => setType('Dog')}
-              value='dog'
-              id='Dog'
-              name='Dog'
+              type='text'
+              id='link'
+              name='link'
+              value={link}
+              onChange={event => setLink(event.target.value)}
+              required
             />
-            <label htmlFor='Dog'>Dog</label>
-            <input
-              type='checkbox'
-              checked={type === 'Cat'}
-              onChange={() => setType('Cat')}
-              value='cat'
-              id='Cat'
-              name='Cat'
-            />
-            <label htmlFor='Cat'>Cat</label>
           </div>
-          <div className='pets-nickname-section sec'>
-            <label htmlFor='pets-nickname'>Pets Nickname:</label>
+          <div className='resource-description-section sec'>
+            <label htmlFor='pets-nickname'>Resource Details:</label>
             <input
               type='text'
               id='pets-nickname'
               name='petsNickname'
-              value={nickname}
-              onChange={event => setNickname(event.target.value)}
+              value={details}
+              onChange={event => setDetails(event.target.value)}
               required
             />
           </div>
-          <div className='pets-age-section sec'>
-            <label htmlFor='pets-age'>Pets Age:</label>
+          <div className='resource-description-section sec'>
+            <label htmlFor='pets-nickname'>Intention:</label>
             <input
               type='text'
-              id='pets-age'
-              name='petsAge'
-              value={age}
-              onChange={event => setAge(event.target.value)}
+              id='pets-nickname'
+              name='petsNickname'
+              value={intention}
+              onChange={event => setIntention(event.target.value)}
               required
             />
           </div>
-          <div className='pets-fun-fact-section sec'>
-            <label htmlFor='pets-fun-fact'>Pets Fun Fact:</label>
-            <input
-              type='text'
-              id='pets-fun-fact'
-              name='petsFunFact'
-              value={funFact}
-              onChange={event => setFunFact(event.target.value)}
-              required
-            />
-          </div>
-          <div className='pet-owners-name-section sec'>
-            <label htmlFor='pet-owners-name'>Pet Owners Name:</label>
-            <input
-              type='text'
-              id='pet-owners-name'
-              name='ownersName'
-              value={ownersName}
-              onChange={event => setOwnersName(event.target.value)}
-              required
-            />
-          </div>
-          <button className='button' onClick={event => submitNewPets(event)}>Submit</button>
+          
+          <button className='button' onClick={event => submitNewResource(event)}>Submit</button>
         </form>
       </div>
     </div>

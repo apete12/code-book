@@ -1,0 +1,38 @@
+import ResourceCard from "../ResourceCard/ResourceCard";
+import PropTypes from 'prop-types'
+
+const AllResources = ({ allResources, deletePet }) => {
+
+  const resources = allResources.map((resource) => {
+    return <ResourceCard 
+      key={resource.id}
+      id={resource.id}
+      name={resource.name}
+      details={resource.details}
+      type={resource.type}
+      link={resource.link}
+      deletePet={deletePet}
+      />
+  })
+
+  return (
+    <div className="all-resources-container">
+      {resources}
+    </div>
+  )
+}
+
+export default AllResources;
+
+AllResources.propTypes = {
+  allResources: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+      name: PropTypes.string.isRequired,
+      nickname: PropTypes.string,
+      details: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+      link: PropTypes.string,
+      type: PropTypes.string.isRequired
+    })
+  )
+}

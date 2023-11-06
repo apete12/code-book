@@ -1,22 +1,20 @@
-import cat from './images/cat.png';
-import dog from './images/dog.png';
-import fish from './images/fish.png';
-import bone from './images/bone.png';
+import article from './images/article.png';
+import video from './images/video.png';
 
-const checkIcon = (petType) => {
-  if (petType === 'Dog') {
-    return <img className='pet-icon' src={dog} alt="Dog Icon" />
-  } else if (petType === 'Cat'){
-    return <img className='pet-icon' src={cat} alt="Cat Icon" />
+const checkIcon = (type) => {
+  if (type === 'Article') {
+    return <img className='resource-icon' src={article} alt="Article Icon" />
+  } else if (type === 'Video'){
+    return <img className='resource-icon' src={video} alt="Video Icon" />
   }
 }
 
-const checkLinkImage = (petType) => {
-  if (petType === 'Dog') {
-    return <img className='detail-link-icon' src={bone} alt="Dog Detail Link" />
-  } else if (petType === 'Cat'){
-    return <img className='detail-link-icon' src={fish} alt="Cat Detail Link" />
-  }
-}
+// const checkLinkImage = (petType) => {
+//   if (petType === 'Dog') {
+//     return <img className='detail-link-icon' src={bone} alt="Dog Detail Link" />
+//   } else if (petType === 'Cat'){
+//     return <img className='detail-link-icon' src={fish} alt="Cat Detail Link" />
+//   }
+// }
 
-export { checkIcon, checkLinkImage}
+export { checkIcon }

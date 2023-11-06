@@ -1,4 +1,4 @@
-.all-pets-container {
+.all-resources-container {
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(3, 1fr);
@@ -8,7 +8,7 @@
   margin-left: 55px;
 }
 
-.pet-card {
+.resource-card {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -19,28 +19,34 @@
   height: 325px
 }
 
-.pet-card h2, h3, p {
+.resource-card h2, h3, p {
   display: flex;
   text-align: center;
   justify-content: center;
   margin: 0px;
 }
 
-.pet-card h3, 
-.pet-card p {
-  font-size: 15px;
+.resource-card h2{
+  font-size: 1.25em;
 }
 
-.pet-icon{
-  height: 150px;
-  width: 150px;
+.resource-card h3, 
+.resource-card p {
+  font-size: 1em;
+}
+
+.resource-icon{
+  height: 100px;
+  width: 100px;
 }
 
 .info-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   width: 85%;
+  height: 95%;
 }
 
 .spiral-container {
@@ -71,25 +77,25 @@
 }
 
 @media screen and (max-width: 1364px) {
-  .pet-card {
+  .resource-card {
     width: 280px
   }
 }
 
 @media screen and (max-width: 1287px) {
-  .pet-card {
+  .resource-card {
     width: 250px
   }
 }
 
 @media screen and (max-width: 1175px) {
-  .pet-card {
+  .resource-card {
     width: 200px;
   }
 }
 
 @media screen and (max-width: 989px) {
-  .all-pets-container {
+  .all-resources-container {
     overflow-x: scroll;
     width: 80%;
   }

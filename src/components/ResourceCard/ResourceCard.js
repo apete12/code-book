@@ -1,14 +1,14 @@
-import './PetCard.css';
+import './ResourceCard.css';
 import { Link } from 'react-router-dom';
 import { checkIcon, checkLinkImage } from '../../utils';
 import deleteIcon from '../../images/delete.png';
 import spirals from '../../images/spirals.png';
 import PropTypes from 'prop-types'
 
-const PetCard = ({ id, name, owner, type, deletePet }) => {
+const ResourceCard = ({ id, name, details, type, link, deletePet }) => {
 
   return (
-    <div className="pet-card">
+    <div className="resource-card">
       <div className='spiral-container'>
         <img className='spirals' src={spirals} alt='spiral styling'/>
       </div>
@@ -18,17 +18,16 @@ const PetCard = ({ id, name, owner, type, deletePet }) => {
         </div>
         {checkIcon(type)}
         <h2>{name}</h2>
-        <h3>{type}</h3>
-        <p className='owner'>Owner: {owner}</p>
-        <Link to={`/${id}`}>{checkLinkImage(type)}</Link>
+        <p className='owner'>Type: {type}</p>
+        <Link to={`/${id}`}>More Information</Link>
       </div>
     </div>
   )
 }
 
-export default PetCard;
+export default ResourceCard;
 
-PetCard.propTypes = {
+ResourceCard.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   owner: PropTypes.string.isRequired,

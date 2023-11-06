@@ -3,13 +3,8 @@
     flex-direction: row;
     align-items: center;
     padding-left: 10px;
-    background-color: #FFE8CF;
+    background-color: #344b5b;
     height: 125px;
-  }
-
-  .petbook-logo{
-    display: flex;
-    width: 110px;
   }
   
   .header h1 {
@@ -19,12 +14,13 @@
     margin-top: 2px;
     font-size: 50px;
     font-family: 'Aleo', sans-serif;
+    color: white;
   }
+
   .header h2 {
     display: flex;
     padding-left: 5px;
     margin: 0px;
     font-size: 16px;
-    font-family: 'Raleway',
-sans-serif;
+    font-family: 'Raleway', sans-serif;
   }
