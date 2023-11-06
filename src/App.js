@@ -60,7 +60,7 @@ const App = () => {
       <Header />
       {loading && <Loading loading={loading}/>}
       <Routes>
-        <Route path="/" element={!error && !loading && <HomeView/>}/>
+        <Route path="/" element={<HomeView/>}/>
         <Route path="/all-resources" element={!error && !loading && <AllResources addNewResource={addNewResource} deleteResource={deleteResource} allResources={allResources} setLoading={setLoading} setError={setError}/>}/>
         <Route path="/add-resource" element={!error && !loading && <Form addNewResource={addNewResource} allResources={allResources} setLoading={setLoading} setError={setError}/>}/>
         <Route path="/:id" element={<ResourceDetails allResources={allResources} setError={setError}/>}/>

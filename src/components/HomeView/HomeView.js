@@ -1,26 +1,19 @@
 import './HomeView.css'
-// import PropTypes from 'prop-types'
 
 const HomeView = () => {
   return (
     <div className="home-view">
+      <div className='header-styling-container'>
+        <h2 className='home-header'>Code Book:</h2>
+         <div className='code-book-details'>
+          <p className='card-type'>✅ Log your tech resources</p>
+          <p className='card-type'>✅ Share your tech resources</p>
+          <p className='card-type'>✅ Level up your tech skills</p>
+        </div>
+        
+      </div>
     </div>
   )
 }
 
 export default HomeView;
-
-// HomeView.propTypes = {
-//   addNewResource: PropTypes.func.isRequired,
-//   allResources: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.number,
-//       name: PropTypes.string.isRequired,
-//       details: PropTypes.string,
-//       type: PropTypes.number,
-//       link: PropTypes.string,
-//     })
-//   ), 
-//   setLoading: PropTypes.func.isRequired,
-//   setError: PropTypes.func
-// }

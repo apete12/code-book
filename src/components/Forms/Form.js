@@ -113,7 +113,6 @@ const Form = ({ addNewResource, setLoading, setError }) => {
               required
             />
           </div>
-          
           <button className='button' onClick={event => submitNewResource(event)}>Submit</button>
         </form>
       </div>
