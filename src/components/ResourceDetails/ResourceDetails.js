@@ -31,14 +31,22 @@ function ResourceDetails({ setError }) {
           <img className='spirals' src={spirals} alt='spiral styling'/>
         </div>
         <div className='resource-type'>
-          <div className='resource-type-image'>{checkIcon(foundResource.type)}</div>
-          <h2>Resource Type: {foundResource.type}</h2>
+          <div className='single-type-image'>{checkIcon(foundResource.type)}</div>
+          <h2 className='single-type'>Resource Type: {foundResource.type}</h2>
         </div>
         <div className='resource-info'>
-          <h2 className='resource-name'>{foundResource.name}</h2>
-          <p>Details: {foundResource.details}</p>
-          <p>Intention: {foundResource.intention}</p>
-          <a href={foundResource.link}>Visit the {foundResource.name} full resource.</a>
+          <h2 className='single-name'>{foundResource.name}</h2>
+          <div className='single-details'>
+            <p>Details: </p>
+            <p>{foundResource.details}</p>
+          </div>
+          <div className='single-intention'>
+            <p>Intention:</p>
+            <p>{foundResource.intention}</p>
+          </div>
+          <div className='single-link'>
+            <a href={foundResource.link}>Visit the {foundResource.name} full resource.</a>
+          </div>
         </div>
       </section>
     </article>

@@ -46,7 +46,7 @@ const Form = ({ addNewResource, setLoading, setError }) => {
 
   return (
     <div className='form-section'>
-      <p className='new-resource'>Add New Resource:</p>
+      <h2 className='new-resource-header'>Add New Resource:</h2>
       <div className='form-wrapper'>
         <form>
         <div className='resource-type-checkbox sec' id='resource-type-checkbox'>

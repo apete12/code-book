@@ -17,9 +17,8 @@ const ResourceCard = ({ id, name, details, type, link, deletePet }) => {
           <img className='delete-icon' src={deleteIcon} alt='delete icon' onClick={() => deletePet(id)}/>
         </div>
         {checkIcon(type)}
-        <h2>{name}</h2>
-        <p className='owner'>Type: {type}</p>
-        <Link to={`/${id}`}>More Information</Link>
+        <Link to={`/${id}`}><h2 className='card-name'>{name}</h2></Link>
+        <p className='card-type'>Type: {type}</p>
       </div>
     </div>
   )

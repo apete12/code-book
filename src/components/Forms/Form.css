@@ -20,15 +20,9 @@ form {
   display: flex;
 }
 
-.new-resource {
-  padding-top: 1em;
-}
-
-p {
-  display: flex;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 25px;
+.new-resource-header {
+  font-size: 2em;
+  font-family: 'Aleo', sans-serif;
 }
 
 .sec {
@@ -50,10 +44,6 @@ p {
   margin-right: 5em;
 }
 
-.paws-image {
-  padding: 20px;
-  justify-content: center;
-}
 
 .button{
   padding: 10px 40px;
@@ -135,9 +125,6 @@ p {
     margin-left: 6.5rem
   }
   
-  .paws-image {
-    width: 250px;
-  }
   .sec {
     padding: 5px;
   }
@@ -148,12 +135,6 @@ p {
     margin-left: 10px;
     padding-left: 10px;
     padding-right: 10px;
-  }
-}
-
-@media screen and (max-width: 524px) {
-  .paws-image {
-    width: 0px;
   }
 }
 

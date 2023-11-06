@@ -19,7 +19,8 @@
   height: 325px
 }
 
-.resource-card h2, h3, p {
+.card-type,
+.card-name {
   display: flex;
   text-align: center;
   justify-content: center;
@@ -28,6 +29,9 @@
 
 .resource-card h2{
   font-size: 1.25em;
+  font-family: 'Aleo', sans-serif;
+  padding: .5em;
+
 }
 
 .resource-card h3, 
@@ -51,7 +55,7 @@
 
 .spiral-container {
   display: flex;
-  height: 90%;
+  height: 70%;
   margin-left: 5px;
 }
 
