@@ -7,6 +7,9 @@ import Header from './components/Header/Header';
 import Error from './components/Error/Error';
 import ResourceDetails from './components/ResourceDetails/ResourceDetails';
 import Loading from './components/Loading/Loading';
+import Form from './components/Forms/Form';
+import AllResources from './components/AllResources/AllResources';
+
 
 const App = () => {
   const [allResources, setAllResources] = useState([])
@@ -22,7 +25,7 @@ const App = () => {
     setAllResources([...allResources, newResource])
   }
 
-  const deletePet = async (resourceId) => {
+  const deleteResource = async (resourceId) => {
     try {
       const response = await fetch(`https://code-book-be-git-main-apete12.vercel.app/api/v1/resources/${resourceId}`, {
         method: 'DELETE'
@@ -57,7 +60,9 @@ const App = () => {
       <Header />
       {loading && <Loading loading={loading}/>}
       <Routes>
-        <Route path="/" element={!error && !loading && <HomeView addNewResource={addNewResource} deletePet={deletePet} allResources={allResources} setLoading={setLoading} setError={setError}/>}/>
+        <Route path="/" element={!error && !loading && <HomeView/>}/>
+        <Route path="/all-resources" element={!error && !loading && <AllResources addNewResource={addNewResource} deleteResource={deleteResource} allResources={allResources} setLoading={setLoading} setError={setError}/>}/>
+        <Route path="/add-resource" element={!error && !loading && <Form addNewResource={addNewResource} allResources={allResources} setLoading={setLoading} setError={setError}/>}/>
         <Route path="/:id" element={<ResourceDetails allResources={allResources} setError={setError}/>}/>
         <Route path='*' element={<Error error={error}/>}/>
       </Routes>

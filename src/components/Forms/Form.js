@@ -124,7 +124,7 @@ const Form = ({ addNewResource, setLoading, setError }) => {
 export default Form;
 
 Form.propTypes = {
-  addNewPet: PropTypes.func.isRequired,
+  addNewResource: PropTypes.func.isRequired,
   setLoading: PropTypes.func.isRequired,
   setError: PropTypes.func.isRequired
 }

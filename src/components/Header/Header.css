@@ -5,6 +5,7 @@
     padding-left: 10px;
     background-color: #344b5b;
     height: 125px;
+    width: 100%;
   }
   
   .header h1 {
@@ -24,3 +25,42 @@
     font-size: 16px;
     font-family: 'Raleway', sans-serif;
   }
+
+  .title-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding-left: 1.75em;
+    width: 50%;
+    height: 100%;
+  }
+  
+  .nav-wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2em;
+    width: auto;
+    font-family: 'Aleo', sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    margin-right: 1em;
+    margin-left: 1em;
+  }
+  
+  /* .active {
+    background: black;
+    color: rgb(255, 252, 252);
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
