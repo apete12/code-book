@@ -1,4 +1,4 @@
-const fetchPets = () => {
+const fetchResources = () => {
     return fetch('https://code-book-be-git-main-apete12.vercel.app/api/v1/resources')
     
     .then(response => {
@@ -10,13 +10,13 @@ const fetchPets = () => {
     })
 }
 
-const postPet = (newPet) => {
+const postResource = (newResource) => {
     return fetch('https://code-book-be-git-main-apete12.vercel.app/api/v1/resources', {
         method: 'POST', 
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(newPet)
+        body: JSON.stringify(newResource)
     })
     .then(response => {
         if (response.ok) {
@@ -27,7 +27,7 @@ const postPet = (newPet) => {
     })
 }
 
-const fetchPetsById = (id) => {
+const fetchResourceById = (id) => {
     return fetch(`https://code-book-be-git-main-apete12.vercel.app/api/v1/resources/${id}`)
     .then(response => {
         if(response.ok) {
@@ -38,4 +38,4 @@ const fetchPetsById = (id) => {
     })
 }
 
-export { fetchPets, postPet, fetchPetsById }
+export { fetchResources, postResource, fetchResourceById }

@@ -1,0 +1,25 @@
+.all-resources-page{
+    display: flex;
+    flex-direction: column;
+}
+
+.all-resources-header {
+    font-family: 'Aleo', sans-serif;
+}
+
+.all-resources-container {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 55px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .all-resources-container {
+      overflow-x: scroll;
+      width: 80%;
+    }
+  }

@@ -9,12 +9,4 @@ const checkIcon = (type) => {
   }
 }
 
-// const checkLinkImage = (petType) => {
-//   if (petType === 'Dog') {
-//     return <img className='detail-link-icon' src={bone} alt="Dog Detail Link" />
-//   } else if (petType === 'Cat'){
-//     return <img className='detail-link-icon' src={fish} alt="Cat Detail Link" />
-//   }
-// }
-
 export { checkIcon }

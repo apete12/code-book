@@ -1,4 +1,5 @@
 import './HomeView.css'
+import { Link } from 'react-router-dom'
 
 const HomeView = () => {
   return (
@@ -10,7 +11,9 @@ const HomeView = () => {
           <p className='card-type'>✅ Share your tech resources</p>
           <p className='card-type'>✅ Level up your tech skills</p>
         </div>
-        
+        <Link to={`/add-resource`} className='button-home'>
+          <h2>Log Your Resources</h2>
+        </Link>
       </div>
     </div>
   )

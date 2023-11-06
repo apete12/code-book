@@ -7,6 +7,16 @@
     height: 125px;
     width: 100%;
   }
+
+  .logo {
+    width: 4em;
+  }
+
+  .return-home-link{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
   
   .header h1 {
     display: flex;
@@ -16,6 +26,7 @@
     font-size: 50px;
     font-family: 'Aleo', sans-serif;
     color: white;
+    text-decoration: underline;
   }
 
   .header h2 {

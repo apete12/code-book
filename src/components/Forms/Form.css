@@ -46,7 +46,6 @@ form {
   margin-right: 5em;
 }
 
-
 .button{
   padding: 10px 40px;
   background: #000;
@@ -117,13 +116,13 @@ form {
     align-items: center;
     border: solid 15px #72788D;
   }
-  .form-wrapper div:not(.pets-type-checkbox) {
+  .form-wrapper div:not(.resource-type-checkbox) {
     display: flex;
   }
   .form-wrapper label {
     width: 10em;
   }
-  .pets-type-checkbox {
+  .resource-type-checkbox {
     margin-left: 6.5rem
   }
   

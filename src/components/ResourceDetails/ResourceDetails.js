@@ -1,9 +1,8 @@
 import './ResourceDetails.css'
 import spirals from '../../images/spirals.png'
 import { Link, useParams } from 'react-router-dom'
-import PropTypes from 'prop-types'
 import { checkIcon } from '../../utils';
-import { fetchPetsById } from '../../api-calls';
+import { fetchResourceById } from '../../api-calls';
 import { useEffect, useState } from 'react';
 
 function ResourceDetails({ setError }) {
@@ -11,7 +10,7 @@ function ResourceDetails({ setError }) {
   const [foundResource, setFoundResource] = useState({})
 
   useEffect(() => {
-    fetchPetsById(id)
+    fetchResourceById(id)
     .then(data => {
       setFoundResource(data)
       
@@ -24,7 +23,7 @@ function ResourceDetails({ setError }) {
   return Object.values(foundResource).length > 0 && (
     <article key={foundResource.id}>
       <div className='back-to-all-resources-button-container'>
-        <Link to={'/'}><button className='back-to-all-resources-button'>Back to All Resources</button></Link>
+        <Link to={'/all-resources'}><button className='back-to-all-resources-button'>Back to All Resources</button></Link>
       </div>
       <section className='details-container'>
         <div className='spirals-container'>
@@ -37,12 +36,12 @@ function ResourceDetails({ setError }) {
         <div className='resource-info'>
           <h2 className='single-name'>{foundResource.name}</h2>
           <div className='single-details'>
-            <p>Details: </p>
-            <p>{foundResource.details}</p>
+            <h3>Details: </h3>
+            <p className='single-details-p'>{foundResource.details}</p>
           </div>
           <div className='single-intention'>
-            <p>Intention:</p>
-            <p>{foundResource.intention}</p>
+            <h3>Notes: </h3>
+            <p className='single-intention-p'>{foundResource.notes}</p>
           </div>
           <div className='single-link'>
             <a href={foundResource.link}>Visit the {foundResource.name} full resource.</a>
@@ -54,16 +53,3 @@ function ResourceDetails({ setError }) {
 };
 
 export default ResourceDetails;
-
-ResourceDetails.propTypes = {
-  allPets: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-      name: PropTypes.string.isRequired,
-      nickname: PropTypes.string,
-      age: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-      funFact: PropTypes.string,
-      ownersName: PropTypes.string.isRequired
-    })
-  )
-}

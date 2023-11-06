@@ -1,6 +1,6 @@
 import './Form.css';
 import { useState } from 'react';
-import { postPet } from '../../api-calls'
+import { postResource } from '../../api-calls'
 import PropTypes from 'prop-types'
 
 const Form = ({ addNewResource, setLoading, setError }) => {
@@ -8,7 +8,7 @@ const Form = ({ addNewResource, setLoading, setError }) => {
   const [details, setDetails] = useState("");
   const [type, setType] = useState("");
   const [link, setLink] = useState("");
-  const [intention, setIntention] = useState("");
+  const [notes, setNotes] = useState("");
 
 
   const submitNewResource = (e) => {
@@ -18,14 +18,14 @@ const Form = ({ addNewResource, setLoading, setError }) => {
       name,
       details,
       type,
-      intention
+      notes
     };
 
-    if (!newResource.name || !newResource.details || !newResource.type || !newResource.link || !newResource.intention) {
+    if (!newResource.name || !newResource.details || !newResource.type || !newResource.link || !newResource.notes) {
       return alert('Fill all inputs!')
     } else {
     setLoading(true)
-    postPet(newResource)
+    postResource(newResource)
 
     .then(data => {
       setLoading(false)
@@ -42,6 +42,7 @@ const Form = ({ addNewResource, setLoading, setError }) => {
     setName("");
     setDetails("");
     setType("");
+    setNotes("")
   }
 
   return (
@@ -70,7 +71,7 @@ const Form = ({ addNewResource, setLoading, setError }) => {
             <label htmlFor='article'>Article</label>
           </div>
           <div className='resource-name-section sec'>
-            <label htmlFor='pets-name'>Resource Name:</label>
+            <label htmlFor='name'>Resource Name:</label>
             <input
               type='text'
               id='resource-name'
@@ -81,7 +82,7 @@ const Form = ({ addNewResource, setLoading, setError }) => {
             />
           </div>
           <div className='resource-description-section sec'>
-            <label htmlFor='pets-nickname'>Link:</label>
+            <label htmlFor='link'>Link:</label>
             <input
               type='text'
               id='link'
@@ -92,24 +93,24 @@ const Form = ({ addNewResource, setLoading, setError }) => {
             />
           </div>
           <div className='resource-description-section sec'>
-            <label htmlFor='pets-nickname'>Resource Details:</label>
+            <label htmlFor='details'>Resource Details:</label>
             <input
               type='text'
-              id='pets-nickname'
-              name='petsNickname'
+              id='details'
+              name='details'
               value={details}
               onChange={event => setDetails(event.target.value)}
               required
             />
           </div>
           <div className='resource-description-section sec'>
-            <label htmlFor='pets-nickname'>Intention:</label>
+            <label htmlFor='notes'>Notes:</label>
             <input
               type='text'
-              id='pets-nickname'
-              name='petsNickname'
-              value={intention}
-              onChange={event => setIntention(event.target.value)}
+              id='notes'
+              name='notes'
+              value={notes}
+              onChange={event => setNotes(event.target.value)}
               required
             />
           </div>

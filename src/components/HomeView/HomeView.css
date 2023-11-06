@@ -15,7 +15,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  height: 60%;
+  height: 70%;
   width: 80%;
 }
 
@@ -34,6 +34,61 @@
   font-family: 'Aleo', sans-serif;
   margin-top: 1em;
   margin-bottom: 0;
+}
+
+.button-home{
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: helvetica;
+  font-size: 8px;
+  letter-spacing: 3px;
+  position: relative;
+  transition: all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  cursor: pointer;
+  display: block;
+  border-radius: 20px;
+}
+
+.button-home::after,
+.button-home::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: all .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.button-home::after{
+  width: 20px;
+  height: 1px;
+  background: white;
+  transform: translateX(-3px);
+  margin-top: 0px;
+}
+
+.button-home::before{
+  content: "";
+  transform: rotate(-135deg) translateX(50%);
+  width: 11px;
+  height: 11px;
+  background: transparent;
+  border-left: 1px solid white;
+  border-bottom: 1px solid white;
+  margin-top: -1px;
+}
+
+.button-home:hover{
+  padding: 15px 60px 15px 20px;
+}
+
+.button-home:hover::after,
+.button-home:hover::before{
+  opacity: 1;
+  right: 15px;
 }
 
 @media screen and (max-width: 900px) {

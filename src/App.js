@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { fetchPets } from './api-calls';
+import { fetchResources } from './api-calls';
 import HomeView from './components/HomeView/HomeView';
 import Header from './components/Header/Header';
 import Error from './components/Error/Error';
@@ -32,8 +32,8 @@ const App = () => {
       });
   
       if (response.ok) {
-        const updatedPets = allResources.filter(resource => resource.id !== resourceId);
-        setAllResources(updatedPets);
+        const updatedResources = allResources.filter(resource => resource.id !== resourceId);
+        setAllResources(updatedResources);
       } else {
         console.log('fail', response.status);
       }
@@ -44,7 +44,7 @@ const App = () => {
 
   useEffect(() => {
     setLoading(true)
-    fetchPets()
+    fetchResources()
     .then(data => {
       setAllResources(data.resources)
       setLoading(false)

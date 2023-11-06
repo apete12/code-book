@@ -1,3 +1,4 @@
+import './AllResources.css'
 import ResourceCard from "../ResourceCard/ResourceCard";
 import PropTypes from 'prop-types'
 
@@ -16,8 +17,11 @@ const AllResources = ({ allResources, deletePet }) => {
   })
 
   return (
-    <div className="all-resources-container">
-      {resources}
+    <div className="all-resources-page">
+      <h2 className='all-resources-header'>All Resources: </h2>
+      <div className="all-resources-container">
+        {resources}
+      </div>
     </div>
   )
 }
