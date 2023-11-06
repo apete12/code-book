@@ -9,6 +9,7 @@ import ResourceDetails from './components/ResourceDetails/ResourceDetails';
 import Loading from './components/Loading/Loading';
 import Form from './components/Forms/Form';
 import AllResources from './components/AllResources/AllResources';
+import Confirmation from './components/Confirmation/Confirmation';
 
 
 const App = () => {
@@ -64,6 +65,7 @@ const App = () => {
         <Route path="/all-resources" element={!error && !loading && <AllResources addNewResource={addNewResource} deleteResource={deleteResource} allResources={allResources} setLoading={setLoading} setError={setError}/>}/>
         <Route path="/add-resource" element={!error && !loading && <Form addNewResource={addNewResource} allResources={allResources} setLoading={setLoading} setError={setError}/>}/>
         <Route path="/:id" element={<ResourceDetails allResources={allResources} setError={setError}/>}/>
+        <Route path="/confirmation-page" element={<Confirmation/>}/>
         <Route path='*' element={<Error error={error}/>}/>
       </Routes>
       {error && <Error error={error} />}

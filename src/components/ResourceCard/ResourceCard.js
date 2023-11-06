@@ -8,7 +8,6 @@ import PropTypes from 'prop-types'
 const ResourceCard = ({ id, name, type, deleteResource }) => {
 
   return (
-    <Link to={`/${id}`}>
       <div className="resource-card">
         <div className='spiral-container'>
           <img className='spirals' src={spirals} alt='spiral styling'/>
@@ -17,12 +16,14 @@ const ResourceCard = ({ id, name, type, deleteResource }) => {
           <div className='icon-container'>
             <img className='delete-icon' src={deleteIcon} alt='delete icon' onClick={() => deleteResource(id)}/>
           </div>
-          {checkIcon(type)}
-          <h2 className='card-name'>{name}</h2>
-          <p className='card-type'>Type: {type}</p>
+          <Link to={`/${id}`}>
+            {checkIcon(type)}
+            <h2 className='card-name'>{name}</h2>
+            <p className='card-type'>Type: {type}</p>
+          </Link>
         </div>
       </div>
-    </Link>
+    
   )
 }
 

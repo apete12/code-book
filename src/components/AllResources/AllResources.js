@@ -2,7 +2,7 @@ import './AllResources.css'
 import ResourceCard from "../ResourceCard/ResourceCard";
 import PropTypes from 'prop-types'
 
-const AllResources = ({ allResources, deletePet }) => {
+const AllResources = ({ allResources, deleteResource }) => {
 
   const resources = allResources.map((resource) => {
     return <ResourceCard 
@@ -12,7 +12,7 @@ const AllResources = ({ allResources, deletePet }) => {
       details={resource.details}
       type={resource.type}
       link={resource.link}
-      deletePet={deletePet}
+      deleteResource={deleteResource}
       />
   })
 

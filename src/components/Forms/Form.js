@@ -1,5 +1,6 @@
 import './Form.css';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { postResource } from '../../api-calls'
 import PropTypes from 'prop-types'
 
@@ -9,7 +10,7 @@ const Form = ({ addNewResource, setLoading, setError }) => {
   const [type, setType] = useState("");
   const [link, setLink] = useState("");
   const [notes, setNotes] = useState("");
-
+  const navigate = useNavigate();
 
   const submitNewResource = (e) => {
     e.preventDefault();
@@ -18,6 +19,7 @@ const Form = ({ addNewResource, setLoading, setError }) => {
       name,
       details,
       type,
+      link,
       notes
     };
 
@@ -26,12 +28,12 @@ const Form = ({ addNewResource, setLoading, setError }) => {
     } else {
     setLoading(true)
     postResource(newResource)
-
     .then(data => {
       setLoading(false)
 
       addNewResource(data)
       clearInputs()
+      navigate('/confirmation-page');
     })
     .catch(error => setError(`Post Failed - ${error.message}`))
     setLoading(false)
@@ -42,7 +44,8 @@ const Form = ({ addNewResource, setLoading, setError }) => {
     setName("");
     setDetails("");
     setType("");
-    setNotes("")
+    setLink("");
+    setNotes("");
   }
 
   return (

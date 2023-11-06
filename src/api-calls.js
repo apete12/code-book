@@ -22,6 +22,7 @@ const postResource = (newResource) => {
         if (response.ok) {
             return response.json()
         } else {
+            console.log(response)
             throw new Error('Unable to add new pet to server.')
         }
     })
